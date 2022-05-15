@@ -1,0 +1,26 @@
+body{
+    background: linear-gradient(to bottom right ,#9e9595, #3d3d3d);
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-15px);
+    }
+}
+
+.title{
+    font-size: 4em;
+    color: #fff;
+}
