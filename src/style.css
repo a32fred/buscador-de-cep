@@ -24,3 +24,82 @@ body{
     font-size: 4em;
     color: #fff;
 }
+
+.inputContainer{
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 30px 0;
+    display: flex;
+    border-radius: 6px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.inputContainer input{
+    background: transparent;
+    border: none;
+    color: #fff;
+    outline: none;
+    font-size: medium;
+    margin-right: 6px;
+}
+
+.inputContainer ::-webkit-input-placeholder{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.buttonSearch{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 1s;
+}
+
+.buttonSearch:hover{
+    transform: scale(1.2);
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f1f1f1;
+    color:rgba(0, 0, 0, 0.9);
+    width: 400px;
+    border-radius: 6px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.main h2{
+    margin: 16px 0;
+    font-size: 30px;
+}
+
+.main span{
+    margin: 8px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 576px) {
+    
+    .main{
+        width: 80%;
+    }
+
+    .inputContainer{
+        padding: 15px 40px;
+    }
+
+    .inputContainer input{
+        margin-right: 8px;
+    }
+    
+    .title{
+        font-size: 3.3em;
+    }
+
+    
+}
