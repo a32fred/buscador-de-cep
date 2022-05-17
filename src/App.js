@@ -1,13 +1,32 @@
 import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import api from './services/api';
 import './style.css';
 
 const App = ()=> {
 
   const [input, setInput] = useState('');
+  const [cep, setCep] = useState({});
 
-  const handleClick = ()=>{
-    alert(input);
+   const handleClick = async ()=>{
+    if (input === '') {
+      alert("Campo Vasio! Digite um CEP");
+      return;
+    }
+    
+    try {
+      
+      const response = await api.get(`${input}/json`);
+      setCep(response.data);
+      setInput('');
+
+    } catch {
+
+      alert('CEP Inválido, Digite apenas numero!!');
+      setInput('');
+    }
+
+
   }
 
   return (
@@ -28,16 +47,18 @@ const App = ()=> {
 
       </div>
 
-      <main className="main">
-        <h2>CEP: 61890000</h2>  
-
-        <span>Rua: Sinval Leitão</span>
-        <span>Complemento: Algum aí</span>
-        <span>Bairro: 17 de março</span>
-        <span>Localidade: Ceara - CE</span>
-
-      </main>
-
+      {Object.keys(cep).length > 0 &&(
+         <main className="main">
+          <h2>CEP: {cep.cep}</h2>  
+  
+          <span>Rua: {cep.logradouro}</span>
+          <span>Complemento: {cep.complemento}</span>
+          <span>Bairro: {cep.bairro}</span>
+          <span>Localidade: {cep.localidade} - {cep.uf}</span>
+  
+       </main>
+      )}
+      
     </div>
   );
 }
