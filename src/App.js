@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import ReactInputMask from 'react-input-mask';
 import api from './services/api';
 import './style.css';
 
@@ -34,9 +35,10 @@ const App = ()=> {
       <h1 className="title">Onde é esse CEP?</h1>
 
       <div className="inputContainer">
-        <input 
+        <ReactInputMask
+        mask="99999-999" 
         type="text" 
-        placeholder="Digite aqui o cep"
+        placeholder="Digite seu cep"
         value={ input }
         onChange={ (e)=>setInput(e.target.value) }
         />
