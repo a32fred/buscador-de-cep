@@ -28,6 +28,8 @@ docker pull zurtrah/buscador-de-cep:latest
 docker run -p 3000:3000 zurtrah/buscador-de-cep:latest 
 ```
 
+### Instalação local
+
 ```bash
 git clone https://github.com/a32fred/buscador-de-cep.git
 cd buscador-de-cep
