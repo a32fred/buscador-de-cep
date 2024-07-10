@@ -1,29 +1,24 @@
-# Etapa 1: Build da aplicação
-FROM node:16 AS build
+# Usar a imagem base do Node.js
+FROM node:18-alpine
 
-# Defina o diretório de trabalho
+# Atualizar o npm para a versão mais recente	
+RUN npm install -g npm@latest
+
+# Definir o diretório de trabalho no container
 WORKDIR /app
 
-# Copie o package.json e o package-lock.json
-COPY package.json package-lock.json ./
+# Copiar o package.json e package-lock.json
+COPY package*.json ./
 
-# Instale as dependências
+# Instalar dependências
 RUN npm install
 
-# Copie o restante do código da aplicação
+# Copiar o restante do código da aplicação
 COPY . .
 
-# Compile a aplicação
-RUN npm run build
+# Expor a porta que a aplicação usará
+EXPOSE 3000
 
-# Etapa 2: Criação da imagem final
-FROM nginx:alpine
+# Comando para rodar a aplicação
+CMD ["npm", "start"]
 
-# Copie os arquivos estáticos do build para o diretório do nginx
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Exponha a porta que o nginx irá rodar
-EXPOSE 80
-
-# Comando para iniciar o nginx
-CMD ["nginx", "-g", "daemon off;"]
