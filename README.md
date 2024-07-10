@@ -37,8 +37,9 @@ cd buscador-de-cep
 npm install 
 ```
 
-````bash
+```bash
 npm start
+
 ```
 
 <hr/>
@@ -47,8 +48,8 @@ npm start
 
 Contribuições são bem-vindas! Por favor, siga os passos abaixo para contribuir:
 
-Faça um fork deste repositório
-Crie uma nova branch: git checkout -b minha-nova-funcionalidade
-Faça suas alterações e commit: git commit -m 'Adiciona minha nova funcionalidade'
-Envie para a branch original: git push origin minha-nova-funcionalidade
-Crie um pull request
+- Faça um fork deste repositório
+- Crie uma nova branch: git checkout -b minha-nova-funcionalidade
+- Faça suas alterações e commit: git commit -m 'Adiciona minha nova funcionalidade'
+- Envie para a branch original: git push origin minha-nova-funcionalidade
+- Crie um pull request
